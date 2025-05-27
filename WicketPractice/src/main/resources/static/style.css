@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+body {
+	background-color: red;
+}
+
+h1 {
+	background-color: blue;
+	border-style: none none solid solid;
+	border-width: 0px 0px 2px 5px;
+	padding 1px 5px 1px 5px;
+	font-size: 14px;
+}
+

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:wicket="http://wicket.apache.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="style-src 'self' http://localhost:8080;">
+<link rel="stylesheet" href="style.css">
+<title>練習</title>
+
+</head>
+<body>
+<h1 wicket:id="title">Wicketで設定したものが表示されるはず</h1>
+
+
+<h2 wicket:id="filterName"></h2>
+<form wicket:id="filterForm">
+	<table border="1" style="border-collapse: collapse">
+		<tr>
+			<th>ID</th><th>従業員名</th>
+		</tr>
+		<tr>
+			<td><input type="text" wicket:id="filteredId"/></td>
+			<td><input type="text" wicket:id="filteredName"/></td>
+		</tr>
+	</table>
+	<input type="submit" wicket:id="filterButton" value="検索">
+	<input type="submit" wicket:id="clearButton" value="条件クリア"><br>
+	<input type="submit" wicket:id="ajaxFilterButton" value="検索(Ajax)">
+	<input type="submit" wicket:id="ajaxClearButton" value="条件クリア(Ajax)"><br>
+
+</form>
+
+<h2 wicket:id="tableName"></h2>
+<table border="1" style="border-collapse: collapse; width=450px">
+	<tr>
+		<th>ID</th><th>従業員名</th><th>削除</th>
+	</tr>
+	<tbody wicket:id="container">
+	<tr wicket:id="employees">
+		<td wicket:id="id"></td>
+		<td wicket:id="name"></td>
+		<td>
+			<input type="hidden" wicket:id="hidden"/>
+			<form wicket:id="delete">
+				<input type="submit" wicket:id="deleteButton" value="削除">
+			</form>
+		</td>
+	</tr>
+	</tbody>
+</table>
+<br>
+<form wicket:id="regist">
+	<button wicket:id="registButton">従業員の登録</button>
+</form>
+
+<a wicket:id="nextPage">従業員の登録(リンクの練習)</a><br>
+
+<h3 wicket:id="dateTitleHtml"></h3>
+<input type="date" wicket:id="datePickerHtml">
+<h3 wicket:id="dateTitleWicket"></h3>
+<input type="text" wicket:id="datePickerWicket">
+</body>
+</html>

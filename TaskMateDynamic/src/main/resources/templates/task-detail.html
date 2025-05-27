@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>タスク詳細</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<h2>タスク詳細</h2>
+
+<table class="detail-table" th:object="${taskDetail}">
+	<tr>
+		<td class="guide">【タスクID】</td>
+		<td th:text="*{taskId}"></td>
+	</tr>
+	<tr>
+		<td class="guide">【タスク名】</td>
+		<td th:text="*{taskName}"></td>
+	</tr>
+	<tr>
+		<td class="guide">【期限】</td>
+		<td th:text="*{limitDate}"></td>
+	</tr>
+	<tr>
+		<td class="guide">【ステータス】</td>
+		<td th:text="*{status.statusName}"></td>
+	</tr>
+	<tr>
+		<td class="guide">【備考】</td>
+		<td th:text="*{remarks}"></td>
+	</tr>
+</table>
+<br>
+
+<div th:if="${taskDetail.memoList.size()} != 0">
+	<table class="memo-list">
+		<tr>
+		 <th>メモID</th><th>メモ</th>
+		</tr>
+		<tr th:each="memo : ${taskDetail.memoList}">
+			<td th:text="${memo.memoId}"></td>
+			<td th:text="${memo.memo}"></td>
+		</tr>
+	</table>
+</div>
+
+<br>
+<a th:href="@{/top}">トップページに戻る</a>
+
+</body>
+</html>
